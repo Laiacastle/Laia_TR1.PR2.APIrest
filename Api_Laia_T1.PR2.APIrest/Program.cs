@@ -116,7 +116,7 @@ namespace Api_Laia_T1.PR2.APIrest
             {
                 options.AddDefaultPolicy(policy =>
                 {
-                    policy.WithOrigins("https://localhost:7018"); //ClienteRazor
+                    policy.WithOrigins("https://localhost:7246"); //ClienteRazor
                     policy.AllowAnyHeader();
                     policy.AllowAnyMethod();
                     policy.AllowCredentials();

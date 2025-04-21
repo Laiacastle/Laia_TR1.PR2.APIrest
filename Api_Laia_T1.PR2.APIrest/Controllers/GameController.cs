@@ -76,7 +76,7 @@ namespace Laia_T1.PR2.APIrest.Controllers
             }
         }
         [Authorize(Roles = "Admin")]
-        [HttpPost("{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult<Game>> Delete(int id)
         {
             var game = await _context.Games.FindAsync(id);
