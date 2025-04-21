@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Api_Laia_T1.PR2.APIrest.Data;
+using Api_Laia_T1.PR2.APIrest.Models;
+using Api_Laia_T1.PR2.APIrest.Models.DTOs;
 
 namespace Laia_T1.PR2.APIrest.Controllers
 {
