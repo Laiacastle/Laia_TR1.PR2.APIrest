@@ -1,5 +1,6 @@
 using Api_Laia_T1.PR2.APIrest.Data;
 using Api_Laia_T1.PR2.APIrest.Models;
+using Api_Laia_T1.PR2.APIrest.Tools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -124,7 +125,13 @@ namespace Api_Laia_T1.PR2.APIrest
 
             //---------------------------------------------- Middlewares ---------------------------//
             var app = builder.Build();
-        
+
+            // Crear rols inicials: Admin i User
+            using (var scope = app.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                await RoleTools.CrearRolsInicials(services);
+            }
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
