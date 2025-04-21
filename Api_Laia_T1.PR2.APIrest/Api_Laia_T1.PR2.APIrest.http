@@ -1,0 +1,6 @@
+@Api_Laia_T1.PR2.APIrest_HostAddress = http://localhost:5162
+
+GET {{Api_Laia_T1.PR2.APIrest_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
