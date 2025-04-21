@@ -1,4 +1,5 @@
 using Api_Laia_T1.PR2.APIrest.Data;
+using Api_Laia_T1.PR2.APIrest.Hubs;
 using Api_Laia_T1.PR2.APIrest.Models;
 using Api_Laia_T1.PR2.APIrest.Tools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -147,6 +148,9 @@ namespace Api_Laia_T1.PR2.APIrest
 
 
             app.UseCors();
+
+            //Fuerza el mapeo de endpoint pq no tenemos uno
+            app.MapHub<ChatHub>("/xat");
 
             app.MapControllers();
 
