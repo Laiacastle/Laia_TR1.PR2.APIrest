@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Api_Laia_T1.PR2.APIrest\Api_Laia_T1.PR2.APIrest.csproj" />
+  </ItemGroup>
+
 </Project>
