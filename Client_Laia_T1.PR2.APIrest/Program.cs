@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
+using Client_Laia_T1.PR2.APIrest.Services;
 
 namespace Client_Laia_T1.PR2.APIrest
 {
@@ -30,7 +30,7 @@ namespace Client_Laia_T1.PR2.APIrest
                 client.DefaultRequestHeaders.Add("Accept", "application/json");
 
             });
-            //
+            builder.Services.AddScoped<GamesUtils>();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
                 options.LoginPath = "/Login";
