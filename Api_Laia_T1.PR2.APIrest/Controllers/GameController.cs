@@ -116,9 +116,9 @@ namespace Laia_T1.PR2.APIrest.Controllers
             var user = await _context.Users.OfType<User>().FirstOrDefaultAsync(n => n.Id == idUser);
             try
             {
-                var userHasVoted = game.Users.Any(u => u.Id == idUser);
+                var Voted = game.Users.Any(n => n.UserName == user.UserName);
 
-                if (userHasVoted)
+                if (Voted)
                 {
                     user.Games.Remove(game);
                     game.Users.Remove(user);

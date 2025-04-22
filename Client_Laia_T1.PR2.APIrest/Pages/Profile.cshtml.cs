@@ -35,6 +35,7 @@ namespace Client_Laia_T1.PR2.APIrest.Pages
                 var votedGames = Games.Where(n => n.Users.Select(u => u.Name).Contains(userName)).ToList();
                 VotedGames = votedGames.Select(n => new GameDTO
                 {
+                    Id = n.Id,
                     Title = n.Title,
                     Description = n.Description,
                     Desenv = n.Desenv,
