@@ -1,0 +1,64 @@
+﻿@page
+@model Client_Laia_T1.PR2.APIrest.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card shadow p-5 rounded-4" style="width: 100%; max-width: 500px;">
+        <h2 class="text-center text-success mb-4">Registra't</h2>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger text-center">@Model.ErrorMessage</div>
+        }
+
+        <form method="post" novalidate>
+            <div class="mb-3">
+                <label asp-for="Register.Name" class="form-label"></label>
+                <input asp-for="Register.Name" class="form-control" placeholder="Nom" />
+                <span asp-validation-for="Register.Name" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Surname" class="form-label"></label>
+                <input asp-for="Register.Surname" class="form-control" placeholder="Cognom" />
+                <span asp-validation-for="Register.Surname" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.Email" class="form-label"></label>
+                <input asp-for="Register.Email" class="form-control" placeholder="Correu electrònic" />
+                <span asp-validation-for="Register.Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Register.UserName" class="form-label"></label>
+                <input asp-for="Register.UserName" class="form-control" placeholder="Nom d'usuari" />
+                <span asp-validation-for="Register.UserName" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Register.Password" class="form-label"></label>
+                <input type="password" asp-for="Register.Password" class="form-control" placeholder="Contrasenya" />
+                <span asp-validation-for="Register.Password" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-success rounded-pill fw-semibold">
+                    Registrar-se
+                </button>
+            </div>
+
+            <div class="text-center">
+                <a asp-page="AdminRegister" class="btn btn-link text-decoration-none fw-semibold">
+                    Ets un administrador?
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
