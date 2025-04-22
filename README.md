@@ -21,3 +21,35 @@ Entity Framework Core s'utilitza per gestionar la persistència de dades en una 
 JWT (JSON Web Tokens) s'usa per autenticar usuaris. Els tokens es generen quan l'usuari s'autentica i són necessaris per accedir a les funcionalitats protegides de l'API, assegurant que només els usuaris autenticats puguin interactuar amb els recursos protegits.
 
 SignalR s'implementa per permetre la comunicació en temps real entre usuaris. Això és especialment útil per a funcionalitats com el xat en temps real, millorant així l'experiència de l'usuari.
+
+## Biblografia
+1. 
+  Microsoft. (15 de marzo de 2025). 
+  Crear una API REST con ASP.NET Core.
+  Microsoft Docs. Recuperat el 17 d’abril de 2025 de:
+  https://learn.microsoft.com/es-es/aspnet/core/web-api/?view=aspnetcore-7.0
+
+2. 
+  Microsoft. (07 de noviembre de 2024).
+  Autorización simple en ASP.NET Core
+  Microsoft Docs. Recuperat el 17 d'abril de 2025 de:
+  https://learn.microsoft.com/es-es/aspnet/core/security/authorization/simple?view=aspnetcore-9.0
+
+3. f
+  Microsoft. (07 de noviembre de 2024).
+  Validación de modelos de Identity en ASP.NET Core
+  Microsoft Docs. Recuperat el 20 d'abril de 2025 de:
+  https://learn.microsoft.com/es-es/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-9.0
+
+4. f
+   Microsoft. (1 de febrer de 2025).
+   ASP.NET Core Identity.
+   Microsoft Docs. Recuperat el 20 d’abril de 2025 de:
+   https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
+
+5. f
+   Anònim, username: squidy (22 de juny de 2023.
+   Reading token in ASP.net Core Razor pages WebApp
+   StackOverflow. Recuperat el 21 d'abril de 2025 de:
+  https://stackoverflow.com/questions/76798515/reading-token-in-asp-net-core-razor-pages-webapp
+
