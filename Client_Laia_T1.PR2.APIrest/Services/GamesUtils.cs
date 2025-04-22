@@ -17,7 +17,7 @@ namespace Client_Laia_T1.PR2.APIrest.Services
         public async Task<List<Game>> GetGames()
         {
 
-            var response = await _httpClient.GetAsync("/api/GameAsync");
+            var response = await _httpClient.GetAsync("/api/Game");
             if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadFromJsonAsync<List<GameDTO>>();
@@ -41,7 +41,7 @@ namespace Client_Laia_T1.PR2.APIrest.Services
 
         public async Task<Game> GetGameById(int gameId)
         {
-            var response = await _httpClient.GetAsync($"/api/GameAsync/{gameId}");
+            var response = await _httpClient.GetAsync($"/api/Game/{gameId}");
             if (response.IsSuccessStatusCode)
             {
                 var gameApi = await response.Content.ReadFromJsonAsync<GameDTO>();
@@ -64,7 +64,7 @@ namespace Client_Laia_T1.PR2.APIrest.Services
 
         public async Task<bool> Vote(int gameId, string username)
         {
-            var url = $"api/GamesAsync/vote?gameId={gameId}&userName={username}";
+            var url = $"api/Games/vote?gameId={gameId}&userName={username}";
             var response = await _httpClient.PostAsync(url, null);
             return response.IsSuccessStatusCode;
         }
