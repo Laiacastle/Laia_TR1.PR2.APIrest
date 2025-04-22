@@ -1,0 +1,61 @@
+﻿@page
+@model Client_Laia_T1.PR2.APIrest.Pages.Shared.ChatClientModel
+@{
+    ViewData["Title"] = "Xat en temps real";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 90vh;">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 100%; max-width: 600px;">
+        <h2 class="text-center text-primary mb-4">Xat en temps real</h2>
+
+        <div class="mb-3">
+            <label for="user" class="form-label">Nom d'usuari</label>
+            <input id="user" class="form-control" placeholder="Escriu el teu nom" />
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Missatge</label>
+            <div class="input-group">
+                <input id="message" class="form-control" placeholder="Escriu un missatge..." />
+                <button class="btn btn-success" onclick="SendMessage()">Envia</button>
+            </div>
+        </div>
+
+        <div class="chat-box border rounded p-3 mb-2" style="height: 300px; overflow-y: auto; background-color: #f8f9fa;">
+            <ul id="messages" class="list-unstyled mb-0"></ul>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+    <script>
+        const connexio = new signalR.HubConnectionBuilder()
+            .withUrl("https://localhost:7062/xat")
+            .withAutomaticReconnect()
+            .build();
+
+        connexio.on("ReciveMessage", (user, message) => {
+            const entrada = document.createElement("li");
+            entrada.innerHTML = `<strong>${user}</strong>: ${message}`;
+            document.getElementById("messages").appendChild(entrada);
+            const chatBox = document.querySelector(".chat-box");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
+
+        connexio.start()
+            .then(() => console.log("Connectat a SignalR"))
+            .catch(err => console.error("Error de connexió:", err));
+
+        function SendMessage() {
+            const user = document.getElementById("user").value.trim();
+            const message = document.getElementById("message").value.trim();
+            if (!user || !message) return;
+
+            connexio.invoke("SendMessage", user, message)
+                .catch(err => console.error("Error en enviar:", err));
+
+            document.getElementById("message").value = '';
+        }
+    </script>
+}
