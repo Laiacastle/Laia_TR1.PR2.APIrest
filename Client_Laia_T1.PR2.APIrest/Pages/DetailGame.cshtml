@@ -1,0 +1,42 @@
+﻿@page
+@model Client_Laia_T1.PR2.APIrest.Pages.DetailGameModel
+@{
+    ViewData["Title"] = Model.Game.Title;
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <img src="@Model.Game.Img"
+                     class="card-img-top img-fluid"
+                     alt="@Model.Game.Title"
+                     style="object-fit: cover; height: 400px;" />
+
+                <div class="card-body p-4">
+                    <h1 class="card-title text-center mb-4 display-5 fw-semibold text-primary">@Model.Game.Title</h1>
+
+                    <h5 class="text-center text-muted mb-4">
+                        Desenvolupat per <strong>@Model.Game.Desenv</strong>
+                    </h5>
+
+                    <p class="card-text fs-5 text-center mb-4">
+                        @Model.Game.Description
+                    </p>
+
+                    <div class="d-flex justify-content-center mb-4">
+                        <span class="badge bg-success fs-6 px-3 py-2 rounded-pill">
+                            Vots: @Model.Game.Users.Count
+                        </span>
+                    </div>
+
+                    <div class="text-center">
+                        <a asp-page="/ViewGames" class="btn btn-outline-primary px-4 py-2 rounded-pill">
+                            ← Tornar a la llista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
