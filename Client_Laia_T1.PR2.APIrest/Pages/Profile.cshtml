@@ -1,0 +1,68 @@
+﻿@page
+@model Client_Laia_T1.PR2.APIrest.Pages.ProfileModel
+@{
+    ViewData["Title"] = "My Profile";
+}
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h2 class="mb-0"><i class="bi bi-person-circle me-2"></i>My Profile</h2>
+    </div>
+    <div class="card-body">
+        @if (Model.User != null)
+        {
+            <div class="row mb-4">
+                <div class="col-md-4 text-center">
+                    <div class="bg-light rounded-circle mx-auto d-flex align-items-center justify-content-center" style="width: 150px; height: 150px;">
+                        <i class="bi bi-person" style="font-size: 5rem;"></i>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h3 class="mb-3">@HttpContext.User.Identity.Name</h3>
+                    @if (Model.Admin)
+                    {
+                        <div class="badge bg-success mb-2">Administrator</div>
+                    }
+
+                </div>
+            </div>
+
+            <h4 class="mt-4 mb-3">Statistics</h4>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.VotedGames.Count</h5>
+                            <p class="card-text">Favorite Games</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @if (Model.VotedGames.Count > 0)
+            {
+                <h4 class="mt-4 mb-3">Favorite Games</h4>
+                <div class="row">
+                    @foreach (var game in Model.VotedGames)
+                    {
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100">
+                                <img src="@game.Img" class="card-img-top" alt="@game.Title">
+                                <div class="card-body">
+                                    <h5 class="card-title">@game.Title</h5>
+                                    <a asp-page="/GameDetail" asp-route-id="@game.Id" class="btn btn-sm btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Unable to load profile information. Please try again later.
+            </div>
+        }
+    </div>
+</div>
