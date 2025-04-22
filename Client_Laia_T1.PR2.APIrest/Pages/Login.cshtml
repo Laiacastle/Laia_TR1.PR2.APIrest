@@ -1,0 +1,47 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow p-5 rounded-4" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center text-primary mb-4">Inicia Sessió</h2>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger text-center">@Model.ErrorMessage</div>
+        }
+
+        <form method="post" novalidate>
+            <div class="mb-3">
+                <label asp-for="Login.Email" class="form-label"></label>
+                <input asp-for="Login.Email" class="form-control" placeholder="Correu electrònic" />
+                <span asp-validation-for="Login.Email" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Login.Password" class="form-label"></label>
+                <input type="password" asp-for="Login.Password" class="form-control" placeholder="Contrasenya" />
+                <span asp-validation-for="Login.Password" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mb-3">
+                <button type="submit" class="btn btn-primary rounded-pill fw-semibold">
+                    Entrar
+                </button>
+            </div>
+
+            <div class="text-center">
+                <span class="text-muted">No tens compte?</span>
+                <a asp-page="Register" class="btn btn-link text-decoration-none fw-semibold">
+                    Registrar-se
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
