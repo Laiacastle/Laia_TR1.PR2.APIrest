@@ -8,10 +8,6 @@
     <div class="card shadow-lg p-4 rounded-4" style="width: 100%; max-width: 600px;">
         <h2 class="text-center text-primary mb-4">Xat en temps real</h2>
 
-        <div class="mb-3">
-            <label for="user" class="form-label">Nom d'usuari</label>
-            <input id="user" class="form-control" placeholder="Escriu el teu nom" />
-        </div>
 
         <div class="mb-3">
             <label for="message" class="form-label">Missatge</label>
@@ -26,7 +22,7 @@
         </div>
     </div>
 </div>
-
+<div id="chatContainer" data-username="@HttpContext.User.Identity.Name"></div>
 @section Scripts {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
     <script>
@@ -48,7 +44,7 @@
             .catch(err => console.error("Error de connexió:", err));
 
         function SendMessage() {
-            const user = document.getElementById("user").value.trim();
+            const user = document.getElementById("chatContainer").getAttribute("data-username");
             const message = document.getElementById("message").value.trim();
             if (!user || !message) return;
 
