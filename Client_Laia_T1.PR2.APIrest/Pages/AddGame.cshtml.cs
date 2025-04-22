@@ -25,7 +25,7 @@ namespace Client_Laia_T1.PR2.APIrest.Pages
                 {
                     client.BaseAddress = new Uri("https://localhost:7062");
 
-                    var token = HttpContext.Session.GetString("AuthenticationToken");
+                    var token = HttpContext.Session.GetString("AuthToken");
 
                     if (!string.IsNullOrEmpty(token))
                     {
