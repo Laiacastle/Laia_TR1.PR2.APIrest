@@ -48,7 +48,7 @@ namespace Client_Laia_T1.PR2.APIrest.Pages
                 }
 
                 TempData["SuccessMessage"] = "Login correcte";
-                return RedirectToPage("ViewGames");
+                return RedirectToPage("Profile");
             }
         }
     }
