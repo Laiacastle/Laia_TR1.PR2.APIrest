@@ -66,7 +66,7 @@ namespace Client_Laia_T1.PR2.APIrest.Services
 
             // guardar el token
             _httpContextAccessor.HttpContext.Response.Cookies.Append(
-                "authenticationToken",
+                "AuthToken",
                 token,
                 new CookieOptions
                 {

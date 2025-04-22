@@ -38,10 +38,13 @@
                                    class="btn btn-outline-primary rounded-pill">
                                     Veure Detalls
                                 </a>
-
-                                <button class="btn btn-warning rounded-pill" onclick="addToFavorites(@game.Id)">
-                                    ⭐
-                                </button>
+                                
+                                <form method="post" asp-page-handler="AddVote" asp-route-id="@game.Id" class="d-inline">
+                                    <button type="submit" class="btn btn-warning rounded-pill">
+                                        ⭐
+									</button>
+                                </form>
+                                
                             </div>
                         </div>
                     </div>
@@ -52,16 +55,4 @@
 
 </div>
 
-@section Scripts {
-    <script>
-        function addToFavorites(gameId) {
-             using (var client = new HttpClient())
-                {
-                    var userId = HttpContext.User.Identity.Id;
-                    client.BaseAddress = new Uri("https://localhost:7062");
 
-                    var response = await client.PostAsJsonAsync("/api/Game/Vote", game.Id, userId);
-
-        }
-    </script>
-}
