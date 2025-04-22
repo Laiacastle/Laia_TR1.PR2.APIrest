@@ -35,19 +35,22 @@ SignalR s'implementa per permetre la comunicació en temps real entre usuaris. A
   Microsoft Docs. Recuperat el 17 d'abril de 2025 de:
   https://learn.microsoft.com/es-es/aspnet/core/security/authorization/simple?view=aspnetcore-9.0
 
-3. 
+3.  
   Microsoft. (07 de noviembre de 2024).
   Validación de modelos de Identity en ASP.NET Core
   Microsoft Docs. Recuperat el 20 d'abril de 2025 de:
   https://learn.microsoft.com/es-es/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-9.0
 
-4. 
+4.  
+
    Microsoft. (1 de febrer de 2025).
    ASP.NET Core Identity.
    Microsoft Docs. Recuperat el 20 d’abril de 2025 de:
    https://learn.microsoft.com/es-es/aspnet/core/security/authentication/identity?view=aspnetcore-9.0&tabs=visual-studio
 
-5. 
+5.  
+
+   
    Anònim, username: squidy (22 de juny de 2023.
    Reading token in ASP.net Core Razor pages WebApp
    StackOverflow. Recuperat el 21 d'abril de 2025 de:
